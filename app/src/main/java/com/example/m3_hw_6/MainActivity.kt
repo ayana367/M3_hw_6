@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
     lateinit var display: TextView
@@ -69,7 +70,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun division(res1: Int, res2: Int) {
-        val result = res1 / res2
-        display.text = result.toString()
+        if (res2==0){
+            Toast.makeText(applicationContext, "На 0 делить нельзя!", Toast.LENGTH_LONG).show()
+        }else{
+            val result = res1 / res2
+            display.text = result.toString()
+        }
     }
 }
